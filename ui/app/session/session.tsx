@@ -113,7 +113,7 @@ export default function Session({
         </div>
       </div>
       <div
-        className={`absolute top-0 right-0 w-1/2 h-full flex flex-col px-4 bg-zinc-800 shadow-[0_0_25px_10px_rgba(0,0,0,0.15)] transition-all duration-250 ${
+        className={`absolute top-0 right-0 w-1/2 h-full flex flex-col px-4 bg-zinc-800 rounded-md shadow-[0_0_25px_10px_rgba(0,0,0,0.15)] transition-all duration-250 ${
           showIO
             ? ""
             : "translate-x-[calc(100%-100px)] opacity-50 hover:transition-none hover:opacity-100 cursor-pointer"

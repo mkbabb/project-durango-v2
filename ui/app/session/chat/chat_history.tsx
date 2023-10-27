@@ -37,7 +37,7 @@ export default function ChatHistory({
           <div
             className={
               "drop-shadow-md rounded-md p-4 whitespace-pre-wrap " +
-              (msg.role === "user" ? "bg-green-100" : "bg-white")
+              (msg.role === "user" ? "bg-green-100" : "bg-zinc-500")
             }
           >
             {msg.text === "" || msg.text === undefined ? "..." : msg.text}

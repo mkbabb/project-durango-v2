@@ -5,8 +5,8 @@ import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Incognito Pilot",
-  description: "Your local AI code interpreter.",
+  title: "Project Durango (Beta)",
+  description: "Locally hosted code interpreter.",
 };
 
 export default function RootLayout({

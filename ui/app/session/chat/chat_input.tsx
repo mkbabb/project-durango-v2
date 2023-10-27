@@ -1,5 +1,5 @@
 import React from "react";
-import { BiSend } from "react-icons/bi";
+import { BiSend, BiStopCircle } from "react-icons/bi";
 
 export default function ChatInput({
   innerRef,
@@ -52,7 +52,7 @@ export default function ChatInput({
           />
         </div>
         <button onClick={onSend} disabled={!canSend}>
-          <BiSend size={24}
+          <BiStopCircle size={24}
           className={
             canSend ? "cursor-pointer text-green-400" : "cursor-not-allowed text-zinc-400"
           }

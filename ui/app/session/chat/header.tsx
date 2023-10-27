@@ -29,7 +29,7 @@ export function Header({
       {error === null && showNew && (
         <div className="absolute p-4 z-10">
           <button
-            className="px-4 py-2 bg-green-300 hover:bg-green-400 active:bg-green-500 text-white rounded-md drop-shadow-lg"
+            className="px-4 py-2 bg-zinc-600 hover:bg-zinc-700 text-white rounded-md drop-shadow-lg"
             onClick={onNew}
           >
             New chat
