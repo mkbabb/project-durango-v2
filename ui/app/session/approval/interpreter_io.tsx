@@ -64,17 +64,17 @@ export default function InterpreterIO({
         </div>
         <button
           className="ml-4 px-4 py-2 bg-zinc-600 hover:bg-zinc-700 text-white rounded-md hover:cursor-pointer"
-          onClick={() => approver.approve(false)}
-          disabled={!askApprove || disabled}
-        >
-          Reject
-        </button>
-        <button
-          className="ml-2 px-4 py-2 bg-zinc-600 hover:bg-zinc-700 text-white rounded-md hover:cursor-pointer"
           onClick={() => approver.approve(true)}
           disabled={!askApprove || disabled}
         >
           Approve
+        </button>
+        <button
+          className="ml-2 px-4 py-2 bg-zinc-600 hover:bg-zinc-700 text-white rounded-md hover:cursor-pointer"
+          onClick={() => approver.approve(false)}
+          disabled={!askApprove || disabled}
+        >
+          Reject
         </button>
       </div>
     </div>

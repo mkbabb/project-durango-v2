@@ -13,6 +13,7 @@ export default function ChatInput({
   const [message, setMessage] = React.useState<string>("");
 
   const canSend = !disabled && message.length > 0;
+  const canStop = !disabled;
 
   const adjustSize = () => {
     const el = innerRef.current;
@@ -25,6 +26,14 @@ export default function ChatInput({
   const onSend = () => {
     if (canSend) {
       onMessage(message);
+      setMessage("");
+      innerRef.current!.value = "";
+      adjustSize();
+    }
+  };
+
+  const onStop = () => {
+    if (canStop) {
       setMessage("");
       innerRef.current!.value = "";
       adjustSize();
@@ -52,11 +61,23 @@ export default function ChatInput({
           />
         </div>
         <button onClick={onSend} disabled={!canSend}>
-          <BiStopCircle size={24}
-          className={
-            canSend ? "cursor-pointer text-green-400" : "cursor-not-allowed text-zinc-400"
-          }
-          
+          <BiSend
+            size={24}
+            className={
+              canSend
+                ? "cursor-pointer text-green-400"
+                : "cursor-not-allowed text-zinc-400"
+            }
+          />
+        </button>
+        <button onClick={onStop} disabled={!canSend}>
+          <BiStopCircle
+            size={24}
+            className={
+              canStop
+                ? "cursor-pointer text-red-400"
+                : "cursor-not-allowed text-zinc-400"
+            }
           />
         </button>
       </div>

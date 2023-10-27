@@ -12,7 +12,7 @@ export function Header({
   return (
     <div className="w-full">
       {error !== null && (
-        <div className="bg-red-600 text-white font-bold p-4">
+        <div className="m-2 bg-zinc-800 text-white font-bold p-4 rounded-md">
           <div className="flex place-items-center">
             <div className="flex-1 mr-2">Error: {error}</div>
             <div>
