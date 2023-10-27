@@ -70,7 +70,7 @@ export default function ChatInput({
             }
           />
         </button>
-        <button onClick={onStop} disabled={!canSend}>
+        <button onClick={onStop}>
           <BiStopCircle
             size={24}
             className={
