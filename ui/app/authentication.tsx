@@ -26,16 +26,18 @@ export default function Authentication({
       token = localStorage.getItem("auth_token");
     }
 
-    if (token !== null) {
-      axios
-        .post(SERVICES_URL + "/api/auth/verify", {
-          token,
-        })
-        .then((response) => {
-          setToken(token);
-        })
-        .catch((error) => {}); // will show error later
-    }
+    setToken("");
+
+    // if (token !== null) {
+    //   axios
+    //     .post(SERVICES_URL + "/api/auth/verify", {
+    //       token,
+    //     })
+    //     .then((response) => {
+    //       setToken(token);
+    //     })
+    //     .catch((error) => {}); // will show error later
+    // }
   }, []);
 
   return <AuthContext.Provider value={token}>{children}</AuthContext.Provider>;
