@@ -4,6 +4,7 @@ import json
 from services.llm.types import Message
 
 
+
 def msg_to_gpt_msg(msg: Message) -> dict:
     if msg.role == "user":
         return {"role": "user", "content": msg.text}
