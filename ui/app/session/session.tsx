@@ -119,11 +119,11 @@ export default function Session({
             : "translate-x-[calc(100%-100px)] opacity-50 hover:transition-none hover:opacity-100 cursor-pointer"
         }`}
         onClick={() => {
-            if (showIO) {
-                setShowIO(false);
-            } else {
+            // if (showIO) {
+            //     setShowIO(false);
+            // } else {
                 setShowIO(true);
-            }
+            // }
         }}
       >
         <div className="flex-1 flex flex-col h-0">

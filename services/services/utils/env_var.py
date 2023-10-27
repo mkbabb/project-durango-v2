@@ -1,5 +1,8 @@
 import os
 import sys
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 def get_env_var(key: str, default: str = None) -> str:
