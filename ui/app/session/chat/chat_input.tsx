@@ -33,7 +33,7 @@ export default function ChatInput({
 
   return (
     <div>
-      <div className="flex gap-2 bg-white drop-shadow-sm border border-neutral-300 rounded-md p-4 focus-within:border-neutral-500">
+      <div className="flex gap-2 bg-zinc-500 drop-shadow-lg border border-none rounded-md p-4 focus-within:border-neutral-500 text-white">
         <div className="flex-1">
           <textarea
             ref={innerRef}
@@ -46,13 +46,18 @@ export default function ChatInput({
               if (event.key === "Enter") onSend();
             }}
             disabled={disabled}
-            placeholder={disabled ? "Please wait..." : "Type your message"}
-            className="block w-full focus:outline-0 disabled:bg-transparent resize-none overflow-hidden"
+            placeholder={disabled ? "Please wait..." : "Send a message"}
+            className="block bg-zinc-500 w-full outline-none border-none disabled:bg-transparent resize-none overflow-hidden"
             rows={1}
           />
         </div>
         <button onClick={onSend} disabled={!canSend}>
-          <BiSend size={24} color={canSend ? "black" : "#aaa"} />
+          <BiSend size={24}
+          className={
+            canSend ? "cursor-pointer text-green-400" : "cursor-not-allowed text-zinc-400"
+          }
+          
+          />
         </button>
       </div>
     </div>

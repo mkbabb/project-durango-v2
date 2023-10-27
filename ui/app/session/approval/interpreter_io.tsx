@@ -27,11 +27,11 @@ export default function InterpreterIO({
   const scrollRef = useScroller(content);
 
   return (
-    <div className="h-full flex flex-col">
-      <div className="text-xl mt-2 text-blue-400">{title}</div>
+    <div className="h-full flex flex-col rounded-md">
+      <div className="text-2xl font-bold mt-2 text-green-400">{title}</div>
       <div
-        className={`flex-1 ${
-          busy ? "bg-neutral-100" : "bg-neutral-50"
+        className={`flex-1 text-white rounded-md ${
+          busy ? "bg-zinc-600" : "bg-zinc-700"
         } overflow-auto h-0 mt-2 ${
           askApprove ? "border-red-400" : "border-transparent"
         } border-2`}
@@ -45,16 +45,16 @@ export default function InterpreterIO({
           <SyntaxHighlighter
             language={language}
             style={docco}
-            className="!overflow-x-visible"
+            className="!overflow-x-visible bg-zinc-700"
           >
             {content ?? ""}
           </SyntaxHighlighter>
         )}
       </div>
-      <div className="flex justify-end items-center my-2">
+      <div className="flex justify-end items-center my-2 text-green-500 ">
         <div>
           <input
-            className="align-middle accent-red-600"
+            className="align-middle accent-green-500"
             type="checkbox"
             checked={autoApprove}
             onChange={(e) => approver.setAutoApprove(e.target.checked)}
@@ -63,14 +63,14 @@ export default function InterpreterIO({
           auto-approve
         </div>
         <button
-          className="ml-4 px-4 py-2 bg-blue-400 hover:bg-blue-500 disabled:bg-gray-100 text-white disabled:text-gray-300 rounded-md"
+          className="ml-4 px-4 py-2 bg-green-400 hover:bg-green-500 text-white rounded-md"
           onClick={() => approver.approve(false)}
           disabled={!askApprove || disabled}
         >
           Reject
         </button>
         <button
-          className="ml-2 px-4 py-2 bg-red-600 hover:bg-red-700 disabled:bg-gray-100 text-white disabled:text-gray-300 rounded-md"
+          className="ml-2 px-4 py-2 bg-green-400 hover:bg-green-500 text-white rounded-md"
           onClick={() => approver.approve(true)}
           disabled={!askApprove || disabled}
         >

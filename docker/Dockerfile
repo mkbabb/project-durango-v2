@@ -1,4 +1,3 @@
-ARG INTERPRETER_IMAGE
 FROM node:18-alpine
 
 WORKDIR /opt/app
@@ -10,7 +9,7 @@ RUN cd ui && \
     npm install && \
     npm run build
 
-FROM $INTERPRETER_IMAGE
+FROM silvanmelchior/interpreter-venv:1.0.0
 SHELL ["/bin/bash", "-c"]
 
 WORKDIR /opt/app

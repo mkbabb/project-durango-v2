@@ -77,7 +77,7 @@ export default function Session({
   const scrollRef = useScroller(history);
 
   return (
-    <div className="relative h-full bg-blue-50 overflow-x-hidden">
+    <div className="relative h-full bg-zinc-700 overflow-x-hidden">
       <div
         className={`absolute top-0 left-0 h-full flex flex-col items-center transition-all duration-500 ${
           showIO ? "w-1/2" : "w-[calc(100%-100px)]"
@@ -108,17 +108,23 @@ export default function Session({
             onMessage={startChatRound}
           />
         </div>
-        <div className="text-blue-200 text-center text-xs pb-4">
+        <div className="text-zinc-700 italic text-center text-xs pb-4">
           Version {version}
         </div>
       </div>
       <div
-        className={`absolute top-0 right-0 w-1/2 h-full flex flex-col px-4 bg-blue-100 shadow-[0_0_25px_10px_rgba(0,0,0,0.15)] transition-all duration-500 ${
+        className={`absolute top-0 right-0 w-1/2 h-full flex flex-col px-4 bg-zinc-800 shadow-[0_0_25px_10px_rgba(0,0,0,0.15)] transition-all duration-250 ${
           showIO
             ? ""
             : "translate-x-[calc(100%-100px)] opacity-50 hover:transition-none hover:opacity-100 cursor-pointer"
         }`}
-        onClick={() => setShowIO(true)}
+        onClick={() => {
+            if (showIO) {
+                setShowIO(false);
+            } else {
+                setShowIO(true);
+            }
+        }}
       >
         <div className="flex-1 flex flex-col h-0">
           <div className="flex-1 h-0">
