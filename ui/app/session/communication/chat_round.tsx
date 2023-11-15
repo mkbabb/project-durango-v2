@@ -55,7 +55,7 @@ export class ChatRound {
   run = async (message: string) => {
     let response = await this.sendMessage({ role: "user", text: message });
     let round = 0;
-    for (; round < 10; round++) {
+    for (; round < 40; round++) {
       const code = response.code;
       if (code !== undefined) {
         const approvedIn = await this.approveIn(code);
@@ -73,8 +73,8 @@ export class ChatRound {
         break;
       }
     }
-    if (round == 10) {
-      throw new Error("Stopped after 10 rounds");
+    if (round == 40) {
+      throw new Error("Stopped after 40 rounds");
     }
   };
 

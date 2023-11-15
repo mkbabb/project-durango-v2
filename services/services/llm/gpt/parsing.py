@@ -2,7 +2,7 @@ import re
 import json
 
 from services.llm.types import Message
-
+import textwrap
 
 
 def msg_to_gpt_msg(msg: Message) -> dict:
@@ -28,19 +28,30 @@ def msg_to_gpt_msg(msg: Message) -> dict:
     raise ValueError(f"Invalid message role {msg.role}")
 
 
-def lazy_parse_args(args_partial):
-    args = args_partial
-    if not re.sub(r"\s+", "", args).endswith('"}'):
-        args += '"}'
-
+def lazy_parse_args(args_partial: str):
     try:
-        args = json.loads(args)
+        args = json.loads(args_partial)
         if "code" not in args:
             return None
-    except json.JSONDecodeError:
-        return None
 
-    return args["code"]
+        return args["code"]
+    except json.JSONDecodeError:
+        args_partial = args_partial.strip()
+
+        if "code" in args_partial:
+            if args_partial.startswith('{"code":'):
+                args_partial = args_partial.removeprefix('{"code":')
+                args_partial = args_partial.strip('"')
+                args_partial = args_partial.strip("'")
+                args_partial = args_partial.removesuffix("}")
+
+                args_partial = textwrap.fill(args_partial, width=60)
+               
+                args_partial = args_partial.replace("\n", " \n")
+            else:
+                args_partial = "..."
+
+        return args_partial
 
 
 def fill_dict(dst: dict, chunk: dict):
